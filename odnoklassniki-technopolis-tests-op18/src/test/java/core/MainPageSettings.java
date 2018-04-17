@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class MainPageSettings extends HelperBase {
     private WebDriver driver;
 
-    public  MainPageSettings(WebDriver driver){
+    public MainPageSettings(WebDriver driver) {
         super(driver);
     }
 
@@ -25,4 +25,5 @@ public class MainPageSettings extends HelperBase {
     public void clickSave() {
         click(By.xpath(".//*[@id='hook_FormButton_button_changeProfileType']"));
     }
+
 }
