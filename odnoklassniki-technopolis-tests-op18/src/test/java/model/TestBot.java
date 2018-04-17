@@ -17,4 +17,5 @@ public class TestBot {
     public String getPassword() {
         return password;
     }
+
 }
