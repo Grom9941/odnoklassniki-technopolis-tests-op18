@@ -1,6 +1,7 @@
 package core;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
 public class MainPageSettings extends HelperBase {
@@ -16,6 +17,10 @@ public class MainPageSettings extends HelperBase {
 
     public void clickChecked() {
         click(By.xpath(".//input[contains(@name, 'st.accessForAGE') and @value='2']"));
+    }
+
+    public  void  clickChecked1() {
+        click(By.xpath(".//input[contains(@name, 'st.accessForSUBSCRIPTION_VISIBILITY') and @value='2']"));
     }
 
     public void clickPublic() {

@@ -24,4 +24,8 @@ public class MainPageSearch extends HelperBase{
         click(By.xpath("//a[@id='ts_def']/div"));
         click(By.xpath("//a[contains(text(),'QA18testbot17 QA18testbot17')]"));
     }
+
+    public void addFriend() {
+        click(By.xpath("//ul[@id='action_menu']/div/a/span"));
+    }
 }
