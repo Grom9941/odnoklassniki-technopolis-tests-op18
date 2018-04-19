@@ -1,11 +1,9 @@
 package core;
 
-import model.TestBot;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class MainPageSearch extends HelperBase{
-    private WebDriver driver;
 
     public  MainPageSearch(WebDriver driver){
         super(driver);

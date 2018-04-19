@@ -2,7 +2,7 @@ package core;
 
 import org.openqa.selenium.WebDriver;
 
-public class SearchError extends HelperBase {
+public class SearchError extends HelperBase implements Interface{
 
     public SearchError(WebDriver driver) {
         super(driver);
@@ -13,7 +13,8 @@ public class SearchError extends HelperBase {
 
     }
 
-    public void error () {
-        System.out.println("Не правильно введены данные");
+    private void error() {
+        System.out.println("Ошибка");
+     //   System.exit(0);
     }
 }

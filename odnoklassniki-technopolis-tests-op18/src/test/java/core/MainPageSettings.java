@@ -1,11 +1,9 @@
 package core;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
 public class MainPageSettings extends HelperBase {
-    private WebDriver driver;
 
     public MainPageSettings(WebDriver driver) {
         super(driver);

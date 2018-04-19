@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class MainPageExit extends HelperBase{
-    private WebDriver driver;
 
     public  MainPageExit(WebDriver driver){
         super(driver);

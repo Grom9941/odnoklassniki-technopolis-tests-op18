@@ -23,7 +23,7 @@ public abstract class HelperBase {
         driver.findElement(locator).click();
     }
 
-    private boolean isElementPresent(By by) {
+    protected boolean isElementPresent(By by) {
         try {
             driver.findElement(by);
             return true;

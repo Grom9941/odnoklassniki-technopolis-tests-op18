@@ -5,12 +5,11 @@ import model.TestBot;
 import model.TestBot1;
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.By;
 
 public class SecondTest extends TestBase{
 
     @Test
-    public void testCase() throws Exception {
+    public void testCase() {
         new SessionHelper(driver).doLogin(new TestBot("QA18testbot17", "QA18testbot "));
         new UserMainPageHelper(driver).clickMySettings();
 
@@ -29,7 +28,8 @@ public class SecondTest extends TestBase{
 
         new SearchHelper(driver).doSesrch(new TestBot1("/profile/571546738044")).search();
         friend.clickAccount();
-        String str = driver.findElement(By.xpath("//div[@data-type='AGE']")).getText();
+
+        String str = new TextPage(driver).textAge();
         Assert.assertEquals(str.split(" ").length,2);
     }
 
