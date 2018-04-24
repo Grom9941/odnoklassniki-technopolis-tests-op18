@@ -13,10 +13,10 @@ public class FirstTest extends TestBase{
 
         new SessionHelper(driver).doLogin(new TestBot("QA18testbot18", "QA18testbot "));
         MainPageSearch friend = new MainPageSearch(driver);
-        new SearchHelper(driver).doSesrch(new TestBot1("/profile/571546738044"));
+        new SearchHelper(driver).doSearch(new TestBot1("/profile/571546738044"));
         friend.clickAccount().search();
 
-        InterfaceBlackList blackList = new Factory().get(driver);
+        InterfaceBlackList blackList = new FactoryMenu().getPage(driver);
         blackList.clickBlackList();
         blackList.clickChecked();
         blackList.clickComplain2();
@@ -28,7 +28,7 @@ public class FirstTest extends TestBase{
         quit.clickConfirm();
 
         new SessionHelper(driver).doLogin(new TestBot("QA18testbot17", "QA18testbot"));
-        new SearchHelper(driver).doSesrch(new TestBot1("/profile/571546737787"));
+        new SearchHelper(driver).doSearch(new TestBot1("/profile/571546737787"));
         friend.clickAccount1();
 
         Assert.assertEquals(new TextPage(driver).textBlackList(),"Информация недоступна.\nЭтот пользователь добавил вас в «чёрный список».");

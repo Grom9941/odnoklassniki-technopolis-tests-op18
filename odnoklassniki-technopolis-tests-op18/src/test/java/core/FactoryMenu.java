@@ -3,11 +3,11 @@ package core;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class Factory {
+public class FactoryMenu {
 
     private final static By ACTION_MENU = By.id("action_menu_expand_item_a");
 
-    public InterfaceBlackList get(WebDriver driver) {
+    public InterfaceBlackList getPage(WebDriver driver) {
         if (isActionMenu(driver)) {
             return new DoWithActionMenu(driver);
         } else {

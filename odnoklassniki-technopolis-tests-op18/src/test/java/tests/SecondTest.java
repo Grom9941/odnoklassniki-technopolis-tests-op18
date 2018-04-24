@@ -26,8 +26,8 @@ public class SecondTest extends TestBase{
         new SessionHelper(driver).doLogin(new TestBot("QA18testbot18", "QA18testbot"));
         MainPageSearch friend = new MainPageSearch(driver);
 
-        new SearchHelper(driver).doSesrch(new TestBot1("/profile/571546738044"));
-        friend.clickAccount().search();
+        new SearchHelper(driver).doSearch(new TestBot1("/profile/571546738044"));
+        friend.clickAccount().error();
 
         Assert.assertEquals(new TextPage(driver).textAge().split(" ").length,2);
     }

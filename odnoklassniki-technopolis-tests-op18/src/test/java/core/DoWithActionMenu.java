@@ -8,7 +8,7 @@ public class DoWithActionMenu extends MainPageBlackList implements InterfaceBlac
     private static final By OTHER_ACTION = By.xpath("//a[@id='action_menu_expand_item_a']/span/em");
     private static final By COMPLAINT = By.xpath("//a[@id='action_menu_sub_action_menu_complaint_friend_a']/span");
 
-    public  DoWithActionMenu(WebDriver driver){
+    public DoWithActionMenu(WebDriver driver){
         super(driver);
     }
 

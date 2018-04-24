@@ -14,7 +14,7 @@ public class ThreeTest extends TestBase {
         new SessionHelper(driver).doLogin(new TestBot("QA18testbot18", "QA18testbot "));
 
         MainPageSearch friend = new MainPageSearch(driver);
-        new SearchHelper(driver).doSesrch(new TestBot1("/profile/571546738044"));
+        new SearchHelper(driver).doSearch(new TestBot1("/profile/571546738044"));
         friend.clickAccount();
     //    friend.addFriend();
 
@@ -31,8 +31,8 @@ public class ThreeTest extends TestBase {
     @Test
     public void testCase() throws Exception {
 
-        new SessionHelper(driver).doLogin(new TestBot("QA18testbot17", "QA18testbot "));
-        new UserMainPageHelper(driver).clickMySettings();
+        new SessionHelper(driver).doLogin(new TestBot("QA18testbot19", "QA18testbot "));
+        new MainPageSettings(driver).clickMySettings();
 
         MainPageSettings setting = new MainPageSettings(driver);
         setting.clickPublic();
@@ -47,7 +47,7 @@ public class ThreeTest extends TestBase {
         new SessionHelper(driver).doLogin(new TestBot("QA18testbot18", "QA18testbot"));
         MainPageSearch friend = new MainPageSearch(driver);
 
-        new SearchHelper(driver).doSesrch(new TestBot1("/profile/571546738044"));
+        new SearchHelper(driver).doSearch(new TestBot1("/profile/571546738044"));
         friend.clickAccount();
         friend.clickHisFriend();
     }

@@ -5,6 +5,11 @@ import org.openqa.selenium.WebDriver;
 
 public class MainPageSettings extends HelperBase {
 
+    private static final By LEFT_COLUMN = By.xpath("//div[@id='hook_Block_LeftColumnTopCardUser']/ul/li[3]/a/span");
+    private static final By SUBSCRIPTION_VISIBILITY = By.xpath(".//input[contains(@name, 'st.accessForSUBSCRIPTION_VISIBILITY') and @value='2']");
+    private static final By AGE = By.xpath(".//input[contains(@name, 'st.accessForAGE') and @value='2']");
+    private static final By SETTINGS_MENU = By.xpath("//div[@id='UserSettingsMenu']/div/div/a[2]/span");
+
     public MainPageSettings(WebDriver driver) {
         super(driver);
     }
@@ -13,24 +18,25 @@ public class MainPageSettings extends HelperBase {
 
     }
 
+    public void clickMySettings() {
+        click(LEFT_COLUMN);
+    }
+
     public void clickChecked() {
-        click(By.xpath(".//input[contains(@name, 'st.accessForAGE') and @value='2']"));
+        click(AGE);
     }
 
     public  void  clickChecked1() {
-        click(By.xpath(".//input[contains(@name, 'st.accessForSUBSCRIPTION_VISIBILITY') and @value='2']"));
+        click(SUBSCRIPTION_VISIBILITY);
     }
 
     public void clickPublic() {
-        click(By.xpath("//div[@id='UserSettingsMenu']/div/div/a[2]/span"));
+        click(SETTINGS_MENU);
     }
 
     public void clickSave() {
-            click(By.xpath(".//*[@id='hook_FormButton_button_changeProfileType']"));
-    }
-
-    public void clickMySettings() {
-        click(By.xpath("//div[@id='hook_Block_LeftColumnTopCardUser']/ul/li[3]/a/span"));
+           // click(By.xpath(".//*[@id='hook_FormButton_button_changeProfileType']"));
+         click(By.id("hook_FormButton_button_changeProfileType"));
     }
 
 }

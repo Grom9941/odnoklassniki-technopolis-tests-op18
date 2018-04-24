@@ -6,9 +6,9 @@ import org.testng.Assert;
 
 public class SearchAccount extends HelperBase {
 
-    public static final By CHECK_PAGE = By.xpath("//div[@id='hook_Block_MiddleColumnTopCardFriend']/div/div/div/div/span/h1");
+    private static final By CHECK_PAGE = By.xpath("//div[@id='hook_Block_MiddleColumnTopCardFriend']/div/div/div/div/span/h1");
 
-    public SearchAccount(WebDriver driver) {
+    SearchAccount(WebDriver driver) {
         super(driver);
         search();
     }

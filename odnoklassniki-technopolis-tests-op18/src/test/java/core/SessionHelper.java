@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 
 public class SessionHelper extends HelperBase{
 
+    private static final By INPUT = By.xpath(".//*[contains(@value,'Войти')]");
+
     public SessionHelper(WebDriver driver){
         super(driver);
     }
@@ -19,6 +21,6 @@ public class SessionHelper extends HelperBase{
         type(testBot.getLogin(),By.id("field_email"));
         type(testBot.getPassword(),By.id("field_password"));
 
-        click(By.xpath(".//*[contains(@value,'Войти')]"));
+        click(INPUT);
     }
 }

@@ -5,6 +5,10 @@ import org.openqa.selenium.WebDriver;
 
 public class MainPageSearch extends HelperBase{
 
+    private static final By OK_SUBMIT = By.xpath("//span[@onclick='OK.submit(this)']");
+    private static final By HIS_FRIEND = By.xpath("//*[contains(@href, 'friend') and contains(@class, 'mctc_navMenuSec')]");
+    private static final By ADD = By.xpath("//ul[@id='action_menu']/div/a/span");
+
     public  MainPageSearch(WebDriver driver){
         super(driver);
     }
@@ -25,14 +29,14 @@ public class MainPageSearch extends HelperBase{
     }
 
     public void addFriend() {
-        click(By.xpath("//ul[@id='action_menu']/div/a/span"));
+        click(ADD);
     }
 
     public void clickAccept() {
-        click(By.xpath("//span[@onclick='OK.submit(this)']"));
+        click(OK_SUBMIT);
     }
 
     public void clickHisFriend() {
-        click(By.xpath("//*[contains(@href, 'friend') and contains(@class, 'mctc_navMenuSec')]"));
+        click(HIS_FRIEND);
     }
 }
