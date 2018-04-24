@@ -3,26 +3,20 @@ package core;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class Factory extends HelperBase{
+public class Factory {
 
+    private final static By ACTION_MENU = By.id("action_menu_expand_item_a");
 
-    public Factory(WebDriver driver) {
-        super(driver);
-    }
-
-    public void get() {
-        if (isActionMenu()) {
-            new MainPageBlackList(driver);
+    public InterfaceBlackList get(WebDriver driver) {
+        if (isActionMenu(driver)) {
+            return new DoWithActionMenu(driver);
         } else {
-            new SearchError(driver);
+            return new WithoutMenu(driver);
         }
     }
 
-    private boolean isActionMenu() {
-        return isElementPresent(By.id("action_menu_expand_item_a"));
+    private boolean isActionMenu(WebDriver driver) {
+        return driver.findElement(ACTION_MENU).isDisplayed();
     }
 
-    protected void check() {
-
-    }
 }

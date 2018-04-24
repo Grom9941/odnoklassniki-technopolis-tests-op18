@@ -14,9 +14,8 @@ public class SearchHelper extends HelperBase{
 
     }
 
-    public PromisSearch doSesrch(TestBot1 testBot1) {
+    public void doSesrch(TestBot1 testBot1) {
 
         type(testBot1.getSearch(),By.id("field_query"));
-        return new PromisSearch(driver);
     }
 }

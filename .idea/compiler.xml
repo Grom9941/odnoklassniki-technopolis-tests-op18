@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="web-tests-technopolis-op18" target="1.5" />
+      <module name="web-tests-technopolis-op18" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>

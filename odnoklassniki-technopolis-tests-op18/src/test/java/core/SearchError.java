@@ -1,8 +1,12 @@
 package core;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
-public class SearchError extends HelperBase implements Interface{
+public class SearchError extends HelperBase {
+
+    public static final By CHECK_PAGE = By.xpath("//div[@id='hook_Block_MiddleColumnTopCardFriend']/div/div/div/div/span/h1");
 
     public SearchError(WebDriver driver) {
         super(driver);
@@ -14,7 +18,8 @@ public class SearchError extends HelperBase implements Interface{
     }
 
     private void error() {
+        Assert.assertFalse(isElementPresent(CHECK_PAGE));
         System.out.println("Ошибка");
-     //   System.exit(0);
+        System.exit(0);
     }
 }

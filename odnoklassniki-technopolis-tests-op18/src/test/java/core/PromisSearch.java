@@ -11,8 +11,8 @@ public class PromisSearch {
     }
 
 
-    public void search() {
-        new SearchHelper(driver);
+    public SearchAccount search() {
+        return new SearchAccount(driver);
     }
 
     public SearchError error() {

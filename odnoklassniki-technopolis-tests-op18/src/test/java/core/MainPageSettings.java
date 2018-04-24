@@ -26,7 +26,11 @@ public class MainPageSettings extends HelperBase {
     }
 
     public void clickSave() {
-        click(By.xpath(".//*[@id='hook_FormButton_button_changeProfileType']"));
+            click(By.xpath(".//*[@id='hook_FormButton_button_changeProfileType']"));
+    }
+
+    public void clickMySettings() {
+        click(By.xpath("//div[@id='hook_Block_LeftColumnTopCardUser']/ul/li[3]/a/span"));
     }
 
 }
