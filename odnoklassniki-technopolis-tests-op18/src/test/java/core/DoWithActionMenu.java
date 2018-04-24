@@ -1,5 +1,6 @@
 package core;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -18,7 +19,9 @@ public class DoWithActionMenu extends MainPageBlackList implements InterfaceBlac
 
     @Override
     public void clickBlackList(){
+        Assert.assertTrue("Не найдена панель меню", isElementPresent(OTHER_ACTION));
         driver.findElement(OTHER_ACTION).click();
+        Assert.assertTrue("Не возможно пожаловаться", isElementPresent(COMPLAINT));
         driver.findElement(COMPLAINT).click();
     }
 

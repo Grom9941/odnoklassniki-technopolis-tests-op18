@@ -1,5 +1,6 @@
 package core;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -18,25 +19,32 @@ public class MainPageSearch extends HelperBase{
     }
 
     public void clickAccount1() {
+        Assert.assertTrue("Нельзя перейти на другой аккаунт", isElementPresent(By.xpath("//a[@id='ts_def']/div")));
         click(By.xpath("//a[@id='ts_def']/div"));
+        Assert.assertTrue("Не правильный профиль", isElementPresent(By.xpath("//a[contains(text(),'QA18testbot18 QA18testbot18')]")));
         click(By.xpath("//a[contains(text(),'QA18testbot18 QA18testbot18')]"));
     }
 
     public PromisSearch clickAccount() {
+        Assert.assertTrue("Нельзя перейти на другой аккаунт", isElementPresent(By.xpath("//a[@id='ts_def']/div")));
         click(By.xpath("//a[@id='ts_def']/div"));
+        Assert.assertTrue("Не правильный профиль", isElementPresent(By.xpath("//a[contains(text(),'QA18testbot17 QA18testbot17')]")));
         click(By.xpath("//a[contains(text(),'QA18testbot17 QA18testbot17')]"));
         return new PromisSearch(driver);
     }
 
     public void addFriend() {
+        Assert.assertTrue("Не добавлен в друзья", isElementPresent(ADD));
         click(ADD);
     }
 
     public void clickAccept() {
+        Assert.assertTrue("Не подтвержденно", isElementPresent(OK_SUBMIT));
         click(OK_SUBMIT);
     }
 
     public void clickHisFriend() {
+        Assert.assertTrue("Не перешел к другу", isElementPresent(HIS_FRIEND));
         click(HIS_FRIEND);
     }
 }

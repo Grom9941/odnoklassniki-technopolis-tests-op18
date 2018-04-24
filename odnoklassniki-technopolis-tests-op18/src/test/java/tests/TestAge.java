@@ -6,7 +6,7 @@ import model.TestBot1;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class SecondTest extends TestBase{
+public class TestAge extends TestBase{
 
     @Test
     public void testCase() {

@@ -1,5 +1,6 @@
 package core;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -18,14 +19,17 @@ public class MainPageExit extends HelperBase{
     }
 
     public void clickBlockQuit() {
+        Assert.assertTrue("Не найдена кнопка выйти???????", isElementPresent(BLOCK_QUIT));
         click(BLOCK_QUIT);
     }
 
     public void clickQuit() {
+        Assert.assertTrue("Не возможно выйти????????", isElementPresent(LOGOUT));
         click(LOGOUT);
     }
 
     public void clickConfirm() {
+        Assert.assertTrue("Не возможно подтвердить??????", isElementPresent(FORM_BUTTON));
         click(FORM_BUTTON);
     }
 }

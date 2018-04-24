@@ -7,9 +7,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ThreeTest extends TestBase {
+public class TestSubscription extends TestBase {
 
-    @Test
+    @Before
     public void testCase1() throws Exception {
         new SessionHelper(driver).doLogin(new TestBot("QA18testbot18", "QA18testbot "));
 
