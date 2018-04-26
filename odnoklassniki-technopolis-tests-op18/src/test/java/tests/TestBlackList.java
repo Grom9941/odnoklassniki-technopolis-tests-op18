@@ -29,7 +29,7 @@ public class TestBlackList extends TestBase{
 
         new SessionHelper(driver).doLogin(new TestBot("QA18testbot17", "QA18testbot"));
         new SearchHelper(driver).doSearch(new TestBot1("/profile/571546737787"));
-        friend.clickAccount1();
+        friend.clickAccount1().search();
 
         Assert.assertEquals(new TextPage(driver).textBlackList(),"Информация недоступна.\nЭтот пользователь добавил вас в «чёрный список».");
 

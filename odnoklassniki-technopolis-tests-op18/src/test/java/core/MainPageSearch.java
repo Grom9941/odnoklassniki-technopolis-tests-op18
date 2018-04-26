@@ -8,7 +8,7 @@ public class MainPageSearch extends HelperBase{
 
     private static final By OK_SUBMIT = By.xpath("//span[@onclick='OK.submit(this)']");
     private static final By HIS_FRIEND = By.xpath("//*[contains(@href, 'friend') and contains(@class, 'mctc_navMenuSec')]");
-    private static final By ADD = By.xpath("//ul[@id='action_menu']/div/a/span");
+    private static final By ADD = By.xpath("//span[@class='dropdown_ac button-pro __wide']");
 
     public  MainPageSearch(WebDriver driver){
         super(driver);
@@ -18,18 +18,15 @@ public class MainPageSearch extends HelperBase{
 
     }
 
-    public void clickAccount1() {
-        Assert.assertTrue("Нельзя перейти на другой аккаунт", isElementPresent(By.xpath("//a[@id='ts_def']/div")));
-        click(By.xpath("//a[@id='ts_def']/div"));
-        Assert.assertTrue("Не правильный профиль", isElementPresent(By.xpath("//a[contains(text(),'QA18testbot18 QA18testbot18')]")));
-        click(By.xpath("//a[contains(text(),'QA18testbot18 QA18testbot18')]"));
+    public PromisSearch clickAccount1() {
+        Assert.assertTrue("Нельзя перейти на другой аккаунт", isElementPresent(By.id("tslink0571546737787")));
+        click(By.id("tslink0571546737787"));
+        return new PromisSearch(driver);
     }
 
     public PromisSearch clickAccount() {
-        Assert.assertTrue("Нельзя перейти на другой аккаунт", isElementPresent(By.xpath("//a[@id='ts_def']/div")));
-        click(By.xpath("//a[@id='ts_def']/div"));
-        Assert.assertTrue("Не правильный профиль", isElementPresent(By.xpath("//a[contains(text(),'QA18testbot17 QA18testbot17')]")));
-        click(By.xpath("//a[contains(text(),'QA18testbot17 QA18testbot17')]"));
+        Assert.assertTrue("Нельзя перейти на другой аккаунт", isElementPresent(By.id("tslink0571546738044")));
+        click(By.id("tslink0571546738044"));
         return new PromisSearch(driver);
     }
 

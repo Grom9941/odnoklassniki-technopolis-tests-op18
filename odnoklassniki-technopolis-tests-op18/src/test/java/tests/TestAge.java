@@ -27,7 +27,7 @@ public class TestAge extends TestBase{
         MainPageSearch friend = new MainPageSearch(driver);
 
         new SearchHelper(driver).doSearch(new TestBot1("/profile/571546738044"));
-        friend.clickAccount().error();
+        friend.clickAccount().search();
 
         Assert.assertEquals(new TextPage(driver).textAge().split(" ").length,2);
     }
