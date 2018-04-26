@@ -2,11 +2,11 @@ package core;
 
 import org.openqa.selenium.WebDriver;
 
-public class PromisSearch {
+public class PromiseSearch {
 
     private final WebDriver driver;
 
-    public PromisSearch (WebDriver driver) {
+    public PromiseSearch (WebDriver driver) {
         this.driver = driver;
     }
 

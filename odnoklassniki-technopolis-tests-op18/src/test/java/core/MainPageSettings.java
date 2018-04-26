@@ -9,7 +9,6 @@ public class MainPageSettings extends HelperBase {
 
     private static final By SUBSCRIPTION_VISIBILITY = By.xpath(".//input[contains(@name, 'st.accessForSUBSCRIPTION_VISIBILITY') and @value='2']");
     private static final By AGE = By.xpath(".//input[contains(@name, 'st.accessForAGE') and @value='2']");
-    private static final By LEFT_COLUMN = By.xpath("//div[@id='hook_Block_LeftColumnTopCardUser']/ul/li[3]");
     private static final By SETTINGS_MENU = By.xpath(".//*[text() = 'Публичность']");
 
     public MainPageSettings(WebDriver driver) {
@@ -17,11 +16,8 @@ public class MainPageSettings extends HelperBase {
     }
 
     protected void check() {
-
-    }
-
-    public void clickMySettings() {
-        click(LEFT_COLUMN);
+        (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='portlet_b']")));
     }
 
     public void clickChecked() {

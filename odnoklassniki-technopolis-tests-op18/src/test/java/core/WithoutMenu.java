@@ -13,6 +13,6 @@ public class WithoutMenu extends MainPageBlackList implements InterfaceBlackList
 
     @Override
     public void clickBlackList() {
-        System.out.println("Не правильная версия сайта");
+        System.out.println("Отсутствует панель действия");
     }
 }

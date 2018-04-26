@@ -22,8 +22,8 @@ public class TestBlackList extends TestBase{
         blackList.clickComplain2();
         blackList.clickClose();
 
+        new UserMainPage(driver).clickBlockQuit();
         MainPageExit quit = new MainPageExit(driver);
-        quit.clickBlockQuit();
         quit.clickQuit();
         quit.clickConfirm();
 
@@ -31,7 +31,7 @@ public class TestBlackList extends TestBase{
         new SearchHelper(driver).doSearch(new TestBot1("/profile/571546737787"));
         friend.clickAccount1().search();
 
-        Assert.assertEquals(new TextPage(driver).textBlackList(),"Информация недоступна.\nЭтот пользователь добавил вас в «чёрный список».");
+        Assert.assertEquals(new Return(driver).textBlackList(),"Информация недоступна.\nЭтот пользователь добавил вас в «чёрный список».");
 
     }
 }

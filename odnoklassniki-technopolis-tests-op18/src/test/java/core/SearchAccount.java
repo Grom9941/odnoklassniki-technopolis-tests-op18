@@ -17,7 +17,7 @@ public class SearchAccount extends HelperBase {
 
     private void search() {
         Assert.assertTrue(isElementPresent(CHECK_PAGE));
-        Assert.assertTrue(driver.findElement(CHECK_PAGE).getText()!="");
+        Assert.assertTrue(!driver.findElement(CHECK_PAGE).getText().equals(""));
         System.out.println("Зашли на страницу пользователя");
     }
 

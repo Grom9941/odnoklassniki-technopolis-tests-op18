@@ -12,14 +12,14 @@ public class TestAge extends TestBase{
     public void testCase() {
         new SessionHelper(driver).doLogin(new TestBot("QA18testbot17", "QA18testbot "));
 
+        new UserMainPage(driver).clickMySettings();
         MainPageSettings setting = new MainPageSettings(driver);
-        setting.clickMySettings();
         setting.clickPublic();
         setting.clickChecked();
-      //  setting.clickSave();
+        setting.clickSave();
 
+        new UserMainPage(driver).clickBlockQuit();
         MainPageExit quit = new MainPageExit(driver);
-        quit.clickBlockQuit();
         quit.clickQuit();
         quit.clickConfirm();
 
@@ -29,7 +29,7 @@ public class TestAge extends TestBase{
         new SearchHelper(driver).doSearch(new TestBot1("/profile/571546738044"));
         friend.clickAccount().search();
 
-        Assert.assertEquals(new TextPage(driver).textAge().split(" ").length,2);
+        Assert.assertEquals(new Return(driver).textAge().split(" ").length,2);
     }
 
 }
