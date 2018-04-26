@@ -2,6 +2,8 @@ package core;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class SearchAccount extends HelperBase {
@@ -13,10 +15,12 @@ public class SearchAccount extends HelperBase {
         search();
     }
 
-    protected void check(){}
+    protected void check(){
+        (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.visibilityOfElementLocated(CHECK_PAGE));
+    }
 
     private void search() {
-        Assert.assertTrue(isElementPresent(CHECK_PAGE));
         Assert.assertTrue(!driver.findElement(CHECK_PAGE).getText().equals(""));
         System.out.println("Зашли на страницу пользователя");
     }
