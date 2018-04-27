@@ -7,11 +7,12 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 
 public class TestSubscription extends TestBase {
 
     @Before
-    public void testCaseBefore() {
+    public void before() {
         init1();
         new SessionHelper(driver).doLogin(new TestBot("QA18testbot18", "QA18testbot "));
         new SearchHelper(driver).doSearch(new TestBot1("/profile/571546738044"));
@@ -33,12 +34,30 @@ public class TestSubscription extends TestBase {
         setting.clickChecked1();
         setting.clickSave();
 
-        new UserMainPage(driver).clickHisFriend();
-        Assert.assertTrue(new Return(driver).testSubscription());
+        new UserMainPage(driver1).clickHisFriend();
+        Assert.assertTrue(new Return(driver1).testSubscription());
     }
 
     @After
-    public void testCaseAfter() {
+    public void after() {
+
+        MainPageSearch search = new MainPageSearch(driver1);
+        search.clickUserMain();
+        new UserMainPage(driver1).clickMySettings();
+
+        MainPageSettings setting = new MainPageSettings(driver1);
+        setting.clickPublic();
+        setting.clickChecked2();
+        setting.clickSave();
+        Assert.assertTrue(new Return(driver1).checkedSelected());
+
+        search.clickFriend();
+        search.moveToAccount();
+        search.clickFriendDelete();
+        search.clickDiscontinue();
+        search.clickClose();
+        Assert.assertFalse(new Return(driver1).checkedFriend());
+
         stop1();
     }
 

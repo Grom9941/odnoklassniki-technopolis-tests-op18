@@ -33,15 +33,17 @@ public class UserMainPage extends HelperBase {
     }
 
     public void addFriend() {
-        Assert.assertTrue("Не добавлен в друзья", isElementPresent(ADD));
-        click(ADD);
+        if (isElementPresent(ADD)) {
+            click(ADD);
+        }
     }
 
     public void clickAccept() {
-        Assert.assertTrue("Не подтвержденно", isElementPresent(OK_SUBMIT));
-        click(OK_SUBMIT);
-        if (isElementPresent(By.xpath("//*[@class='tico_img ic ic_close-g']"))){
-            click(By.xpath("//*[@class='tico_img ic ic_close-g']"));
+        if (isElementPresent(OK_SUBMIT)) {
+            click(OK_SUBMIT);
+            if (isElementPresent(By.xpath("//*[@class='tico_img ic ic_close-g']"))){
+                click(By.xpath("//*[@class='tico_img ic ic_close-g']"));
+            }
         }
     }
 

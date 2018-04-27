@@ -20,6 +20,7 @@ public class MainPageBlackList extends HelperBase  {
     public void clickChecked() {
         Assert.assertTrue("Нельзя добавить в черный список", isElementPresent(By.id("field_addToBlackList")));
         click(By.id("field_addToBlackList"));
+        Assert.assertTrue(driver.findElement(By.id("field_addToBlackList")).isSelected());
     }
 
     public void clickComplain2() {
@@ -28,6 +29,8 @@ public class MainPageBlackList extends HelperBase  {
     }
 
     public void clickClose() {
+        (new WebDriverWait(driver, 10))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.id("buttonId_button_close")));
         Assert.assertTrue("Не возможно закрыть", isElementPresent(By.id("buttonId_button_close")));
         click(By.id("buttonId_button_close"));
     }

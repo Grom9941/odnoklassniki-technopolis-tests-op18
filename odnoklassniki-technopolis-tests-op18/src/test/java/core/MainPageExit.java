@@ -25,5 +25,6 @@ public class MainPageExit extends HelperBase{
     public void clickConfirm() {
         Assert.assertTrue("Не возможно подтвердить выход", isElementPresent(FORM_BUTTON));
         click(FORM_BUTTON);
+        Assert.assertTrue(isElementPresent(By.id("field_query")));
     }
 }

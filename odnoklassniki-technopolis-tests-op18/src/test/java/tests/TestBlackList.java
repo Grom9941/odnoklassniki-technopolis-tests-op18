@@ -3,8 +3,11 @@ package tests;
 import core.*;
 import model.TestBot;
 import model.TestBot1;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
+
+import static java.lang.Thread.sleep;
 
 public class TestBlackList extends TestBase{
 
@@ -32,6 +35,21 @@ public class TestBlackList extends TestBase{
         friend.clickAccount1().search();
 
         Assert.assertEquals(new Return(driver).textBlackList(),"Информация недоступна.\nЭтот пользователь добавил вас в «чёрный список».");
+    }
 
+    @After
+    public void after() throws InterruptedException {
+        init1();
+        new SessionHelper(driver1).doLogin(new TestBot("QA18testbot18", "QA18testbot "));
+
+        new UserMainPage(driver1).clickMySettings();
+        MainPageSettings setting = new MainPageSettings(driver1);
+        setting.clickBlackList();
+        setting.moveToAccount();
+        setting.clickUnlock();
+        setting.clickDelete();
+        sleep(1);
+        Assert.assertTrue(new Return(driver1).numberBlackList());
+        stop1();
     }
 }

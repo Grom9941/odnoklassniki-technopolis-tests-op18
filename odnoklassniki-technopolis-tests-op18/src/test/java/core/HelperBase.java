@@ -25,7 +25,7 @@ public abstract class HelperBase {
 
     protected boolean isElementPresent(By by) {
         try {
-            driver.findElement(by);
+            driver.findElement(by).isDisplayed();
             return true;
         } catch (NoSuchElementException e) {
             return false;

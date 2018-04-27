@@ -3,8 +3,11 @@ package tests;
 import core.*;
 import model.TestBot;
 import model.TestBot1;
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 
 public class TestAge extends TestBase{
 
@@ -30,6 +33,23 @@ public class TestAge extends TestBase{
         friend.clickAccount().search();
 
         Assert.assertEquals(new Return(driver).textAge().split(" ").length,2);
+    }
+
+    @After
+    public void after() {
+        init1();
+        new SessionHelper(driver1).doLogin(new TestBot("QA18testbot17", "QA18testbot "));
+
+        MainPageSearch search = new MainPageSearch(driver1);
+        search.clickUserMain();
+        new UserMainPage(driver1).clickMySettings();
+
+        MainPageSettings setting = new MainPageSettings(driver1);
+        setting.clickPublic();
+        setting.clickChecked3();
+        setting.clickSave();
+        Assert.assertTrue(new Return(driver1).checkedSelected1());
+        stop1();
     }
 
 }
