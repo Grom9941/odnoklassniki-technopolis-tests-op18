@@ -7,10 +7,10 @@ public class Return extends HelperBase{
 
     private static final By CHECK_CLOSE = By.xpath(".//*[@class='stub-empty_t']");
     private static final By CHECK_AGE = By.xpath("//div[@data-type='AGE']");
-    private static final By CHECK_SUBSCRIB = By.xpath("//*[@href='/profile/571546738044/subscriptions' or @href='/profile/571546738044/subscribers']");
+    private static final By CHECK_SUBSCRIBER = By.xpath("//*[contains(@href,'subscriptions') or contains(@href,'subscribers')]");
     private static final By NUMBER = By.xpath("//*[@class='hcount']");
-    private static final By SUBSCRIPTION_VISIBILITY1 = By.xpath(".//input[contains(@name, 'st.accessForSUBSCRIPTION_VISIBILITY') and @value='0']");
-    private static final By AGE1 = By.xpath(".//input[contains(@name, 'st.accessForAGE') and @value='0']");
+    private static final By SUBSCRIPTION_VISIBILITY1 = By.xpath(".//input[contains(@name, 'SUBSCRIPTION_VISIBILITY') and @value='0']");
+    private static final By AGE1 = By.xpath(".//input[contains(@name, 'ForAGE') and @value='0']");
     private static final By SAVE = By.xpath("//*[@class='iblock __ok js-hide-on-change']");
 
     public Return(WebDriver driver){
@@ -40,37 +40,22 @@ public class Return extends HelperBase{
     }
 
     public boolean testSubscription() {
-        if (isElementPresent(CHECK_SUBSCRIB)) {
-            return true;
-        }
-        return false;
+        return isElementPresent(CHECK_SUBSCRIBER);
     }
 
     public boolean numberBlackList() {
-        if (isElementPresent(NUMBER)) {
-            return true;
-        }
-        return false;
+        return isElementPresent(NUMBER);
     }
 
     public boolean checkedSelected() {
-        if (driver.findElement(SUBSCRIPTION_VISIBILITY1).isSelected()) {
-            return true;
-        }
-        return false;
+        return driver.findElement(SUBSCRIPTION_VISIBILITY1).isSelected();
     }
 
     public boolean checkedSelected1() {
-        if (driver.findElement(AGE1).isSelected()) {
-            return true;
-        }
-        return false;
+        return driver.findElement(AGE1).isSelected();
     }
 
     public boolean checkedFriend() {
-        if (!isElementPresent(By.xpath("//*[@class='ucard-v']"))) {
-            return true;
-        }
-        return false;
+        return !isElementPresent(By.xpath("//*[@class='ucard-v']"));
     }
 }

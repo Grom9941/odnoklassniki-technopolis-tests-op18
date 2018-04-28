@@ -7,7 +7,6 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 
 public class TestSubscription extends TestBase {
 
@@ -17,8 +16,8 @@ public class TestSubscription extends TestBase {
         new SessionHelper(driver).doLogin(new TestBot("QA18testbot18", "QA18testbot "));
         new SearchHelper(driver).doSearch(new TestBot1("/profile/571546738044"));
 
-        MainPageSearch account18 = new MainPageSearch(driver);
-        account18.clickAccount().search();
+        MainPageAdditional additional = new MainPageAdditional(driver);
+        additional.clickAccount().search();
         new UserMainPage(driver).addFriend();
 
         new SessionHelper(driver1).doLogin(new TestBot("QA18testbot17", "QA18testbot"));
@@ -40,8 +39,8 @@ public class TestSubscription extends TestBase {
 
     @After
     public void after() {
-        MainPageSearch search = new MainPageSearch(driver1);
-        search.clickUserMain();
+        MainPageAdditional additional = new MainPageAdditional(driver1);
+        additional.clickUserMain();
         new UserMainPage(driver1).clickMySettings();
 
         MainPageSettings setting = new MainPageSettings(driver1);
@@ -50,11 +49,11 @@ public class TestSubscription extends TestBase {
         setting.clickSave();
         Assert.assertTrue(new Return(driver1).checkedSelected());
 
-        search.clickFriend();
-        search.moveToAccount();
-        search.clickFriendDelete();
-        search.clickDiscontinue();
-        search.clickClose();
+        additional.clickFriend();
+        additional.moveToAccount();
+        additional.clickFriendDelete();
+        additional.clickDiscontinue();
+        additional.clickClose();
         Assert.assertFalse(new Return(driver1).checkedFriend());
 
         stop1();

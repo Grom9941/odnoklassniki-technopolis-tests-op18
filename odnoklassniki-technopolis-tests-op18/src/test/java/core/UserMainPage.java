@@ -27,7 +27,7 @@ public class UserMainPage extends HelperBase {
     }
 
     public void clickMySettings() {
-        Assert.assertTrue("Нет кнопки настройка приватности", isElementPresent(LEFT_COLUMN));
+        (new WebDriverWait(driver, 5)).until(ExpectedConditions.visibilityOfElementLocated(LEFT_COLUMN));
         click(LEFT_COLUMN);
     }
 
@@ -49,7 +49,7 @@ public class UserMainPage extends HelperBase {
             click(OK_SUBMIT);
             if (isElementPresent(CLOSE_FIELD)) {
                 click(CLOSE_FIELD);
-                Assert.assertFalse("Не было оповещания",isElementPresent(REQUEST_FRIEND));
+                Assert.assertTrue("Не было оповещания",isElementPresent(REQUEST_FRIEND));
             }
         }
     }

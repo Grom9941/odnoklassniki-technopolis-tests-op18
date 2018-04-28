@@ -5,9 +5,7 @@ import model.TestBot;
 import model.TestBot1;
 import org.junit.After;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 
 public class TestAge extends TestBase{
 
@@ -27,10 +25,10 @@ public class TestAge extends TestBase{
         quit.clickConfirm();
 
         new SessionHelper(driver).doLogin(new TestBot("QA18testbot18", "QA18testbot"));
-        MainPageSearch friend = new MainPageSearch(driver);
+        MainPageAdditional additional = new MainPageAdditional(driver);
 
         new SearchHelper(driver).doSearch(new TestBot1("/profile/571546738044"));
-        friend.clickAccount().search();
+        additional.clickAccount().search();
 
         Assert.assertEquals(new Return(driver).textAge().split(" ").length,2);
     }
@@ -40,14 +38,15 @@ public class TestAge extends TestBase{
         init1();
         new SessionHelper(driver1).doLogin(new TestBot("QA18testbot17", "QA18testbot "));
 
-        MainPageSearch search = new MainPageSearch(driver1);
-        search.clickUserMain();
+        MainPageAdditional additional = new MainPageAdditional(driver1);
+        additional.clickUserMain();
         new UserMainPage(driver1).clickMySettings();
 
         MainPageSettings setting = new MainPageSettings(driver1);
         setting.clickPublic();
         setting.clickChecked3();
         setting.clickSave();
+
         Assert.assertTrue(new Return(driver1).checkedSelected1());
         stop1();
     }

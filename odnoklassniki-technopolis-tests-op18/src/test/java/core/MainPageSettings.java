@@ -1,6 +1,5 @@
 package core;
 
-import org.junit.After;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,10 +9,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MainPageSettings extends HelperBase {
 
-    private static final By SUBSCRIPTION_VISIBILITY = By.xpath(".//input[contains(@name, 'st.accessForSUBSCRIPTION_VISIBILITY') and @value='2']");
-    private static final By SUBSCRIPTION_VISIBILITY1 = By.xpath(".//input[contains(@name, 'st.accessForSUBSCRIPTION_VISIBILITY') and @value='0']");
-    private static final By AGE = By.xpath(".//input[contains(@name, 'st.accessForAGE') and @value='2']");
-    private static final By AGE1 = By.xpath(".//input[contains(@name, 'st.accessForAGE') and @value='0']");
+    private static final By SUBSCRIPTION_VISIBILITY = By.xpath(".//input[contains(@name, 'SUBSCRIPTION_VISIBILITY') and @value='2']");
+    private static final By SUBSCRIPTION_VISIBILITY1 = By.xpath(".//input[contains(@name, 'SUBSCRIPTION_VISIBILITY') and @value='0']");
+    private static final By AGE = By.xpath(".//input[contains(@name, 'ForAGE') and @value='2']");
+    private static final By AGE1 = By.xpath(".//input[contains(@name, 'ForAGE') and @value='0']");
     private static final By SETTINGS_PUBLIC = By.xpath(".//*[text() = 'Публичность']");
     private static final By SETTINGS_BLACKLIST = By.xpath(".//*[text() = 'Черный список ']");
     private static final By SETTINGS_UNLOCK = By.xpath(".//*[text() = 'Разблокировать']");
@@ -45,7 +44,7 @@ public class MainPageSettings extends HelperBase {
     }
 
     public void clickChecked2() {
-        (new WebDriverWait(driver, 5)).until(ExpectedConditions.visibilityOfElementLocated(SUBSCRIPTION_VISIBILITY));
+        (new WebDriverWait(driver, 5)).until(ExpectedConditions.visibilityOfElementLocated(SUBSCRIPTION_VISIBILITY1));
         if (!driver.findElement(SUBSCRIPTION_VISIBILITY1).isSelected()) {
             click(SUBSCRIPTION_VISIBILITY1);
         }

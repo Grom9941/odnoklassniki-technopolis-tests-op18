@@ -7,7 +7,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class MainPageSearch extends HelperBase{
+public class MainPageAdditional extends HelperBase{
 
     private static final By USER_MAIN = By.xpath("//*[@class='toolbar_logo_img']");
     private static final By CHECK_NAME = By.xpath("//*[@class='mctc_name_tx bl']");
@@ -18,7 +18,7 @@ public class MainPageSearch extends HelperBase{
     private static final By DISCONTINUE = By.xpath("//*[@class='button-pro form-actions_yes']");
     private static final By CLOSE = By.id("hook_FormButton_button_close");
 
-    public  MainPageSearch(WebDriver driver){
+    public MainPageAdditional(WebDriver driver){
         super(driver);
     }
 

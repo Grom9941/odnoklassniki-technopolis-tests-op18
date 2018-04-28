@@ -15,9 +15,9 @@ public class TestBlackList extends TestBase{
     public void testCase() {
 
         new SessionHelper(driver).doLogin(new TestBot("QA18testbot18", "QA18testbot "));
-        MainPageSearch friend = new MainPageSearch(driver);
+        MainPageAdditional additional = new MainPageAdditional(driver);
         new SearchHelper(driver).doSearch(new TestBot1("/profile/571546738044"));
-        friend.clickAccount().search();
+        additional.clickAccount().search();
 
         InterfaceBlackList blackList = new FactoryMenu().getPage(driver);
         blackList.clickBlackList();
@@ -32,7 +32,7 @@ public class TestBlackList extends TestBase{
 
         new SessionHelper(driver).doLogin(new TestBot("QA18testbot17", "QA18testbot"));
         new SearchHelper(driver).doSearch(new TestBot1("/profile/571546737787"));
-        friend.clickAccount1().search();
+        additional.clickAccount1().search();
 
         Assert.assertEquals(new Return(driver).textBlackList(),"Информация недоступна.\nЭтот пользователь добавил вас в «чёрный список».");
     }
