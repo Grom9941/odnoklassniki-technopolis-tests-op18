@@ -53,20 +53,24 @@ public class MainPageSearch extends HelperBase{
     }
 
     public void moveToAccount() {
+        Assert.assertTrue("Нет фото друга", isElementPresent(MOVE_TO_PHOTO));
         new Actions(driver).moveToElement(driver.findElement(MOVE_TO_PHOTO)).build().perform();
         (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.visibilityOfElementLocated(FRIEND_DELETE));
     }
 
     public void clickFriendDelete() {
+        Assert.assertTrue("Невозможно удалить друга", isElementPresent(FRIEND_DELETE));
         click(FRIEND_DELETE);
     }
 
     public void clickDiscontinue() {
+        Assert.assertTrue("Невозможно прекратить дружбу", isElementPresent(DISCONTINUE));
         click(DISCONTINUE);
     }
 
     public void clickClose(){
+        Assert.assertTrue("Невозможно закрыть", isElementPresent(CLOSE));
         click(CLOSE);
     }
 }

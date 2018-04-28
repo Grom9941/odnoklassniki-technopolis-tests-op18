@@ -19,6 +19,7 @@ public class MainPageSettings extends HelperBase {
     private static final By SETTINGS_UNLOCK = By.xpath(".//*[text() = 'Разблокировать']");
     private static final By MOVE_TO_PHOTO = By.xpath("//*[@class='stub-img stub-img__user128 stub-img__128 photo_img']");
     private static final By DELETE = By.xpath("//*[@class='button-pro form-actions_yes']");
+    private static final By BUTTON_SAVE = By.xpath("//*[@class='form-actions_yes button-pro']");
 
     public MainPageSettings(WebDriver driver) {
         super(driver);
@@ -58,31 +59,36 @@ public class MainPageSettings extends HelperBase {
     }
 
     public void clickPublic() {
+        Assert.assertTrue("Невозможно перейти к публичному", isElementPresent(SETTINGS_PUBLIC));
         click(SETTINGS_PUBLIC);
     }
 
     public void clickBlackList() {
+        Assert.assertTrue("Невозможно перейти к черному списку", isElementPresent(SETTINGS_BLACKLIST));
         click(SETTINGS_BLACKLIST);
     }
 
     public void clickSave() {
-        if (!isElementPresent(By.xpath("//*[@disabled='']"))) {
-            click(By.id("hook_FormButton_button_changeProfileType"));
+        if (isElementPresent(BUTTON_SAVE)) {
+            click(BUTTON_SAVE);
             Assert.assertEquals("Ваши настройки сохранены.",new Return(driver).textSave());
         }
     }
 
     public void moveToAccount() {
+        Assert.assertTrue("Нет фото друга", isElementPresent(MOVE_TO_PHOTO));
         new Actions(driver).moveToElement(driver.findElement(MOVE_TO_PHOTO)).build().perform();
         (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.visibilityOfElementLocated(SETTINGS_UNLOCK));
     }
 
     public void clickUnlock() {
+        Assert.assertTrue("Нельзя разблокировать", isElementPresent(SETTINGS_UNLOCK));
         click(SETTINGS_UNLOCK);
     }
 
     public void clickDelete() {
+        Assert.assertTrue("Невозможно удалить", isElementPresent(DELETE));
         click(DELETE);
     }
 }

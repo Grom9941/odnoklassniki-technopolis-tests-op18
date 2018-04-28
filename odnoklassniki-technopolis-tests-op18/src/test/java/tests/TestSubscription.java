@@ -40,7 +40,6 @@ public class TestSubscription extends TestBase {
 
     @After
     public void after() {
-
         MainPageSearch search = new MainPageSearch(driver1);
         search.clickUserMain();
         new UserMainPage(driver1).clickMySettings();

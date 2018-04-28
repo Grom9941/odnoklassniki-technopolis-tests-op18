@@ -8,11 +8,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class UserMainPage extends HelperBase {
 
+    private static final By REQUEST = By.xpath("//*[@class='dropdown_ac button-pro __sec __with-arrow']");
     private static final By BLOCK_QUIT = By.xpath("//*[@class='ucard-mini_cnt_i']");
     private static final By OK_SUBMIT = By.xpath("//span[@onclick='OK.submit(this)']");
     private static final By HIS_FRIEND = By.xpath("//*[contains(@href, 'friend') and contains(@class, 'mctc_navMenuSec')]");
     private static final By ADD = By.xpath("//span[@class='dropdown_ac button-pro __wide']");
     private static final By LEFT_COLUMN = By.xpath("//div[@id='hook_Block_LeftColumnTopCardUser']/ul/li[3]");
+    private static final By CLOSE_FIELD = By.xpath("//*[@class='tico_img ic ic_close-g']");
+    private static final By REQUEST_FRIEND = By.xpath("//*[@class='notifications h-mod']");
 
     public UserMainPage(WebDriver driver) {
         super(driver);
@@ -24,6 +27,7 @@ public class UserMainPage extends HelperBase {
     }
 
     public void clickMySettings() {
+        Assert.assertTrue("Нет кнопки настройка приватности", isElementPresent(LEFT_COLUMN));
         click(LEFT_COLUMN);
     }
 
@@ -35,14 +39,17 @@ public class UserMainPage extends HelperBase {
     public void addFriend() {
         if (isElementPresent(ADD)) {
             click(ADD);
+            Assert.assertEquals("Запрос отправлен", driver.findElement(REQUEST).getText());
         }
+
     }
 
     public void clickAccept() {
         if (isElementPresent(OK_SUBMIT)) {
             click(OK_SUBMIT);
-            if (isElementPresent(By.xpath("//*[@class='tico_img ic ic_close-g']"))){
-                click(By.xpath("//*[@class='tico_img ic ic_close-g']"));
+            if (isElementPresent(CLOSE_FIELD)) {
+                click(CLOSE_FIELD);
+                Assert.assertFalse("Не было оповещания",isElementPresent(REQUEST_FRIEND));
             }
         }
     }
